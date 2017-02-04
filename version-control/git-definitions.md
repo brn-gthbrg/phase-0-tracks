@@ -10,3 +10,4 @@ A branch is a copy of a repo. It is like a "separate timeline" that can be edite
 * What is a commit? What makes a good commit message?
 A commit is
 * What is a merge conflict?
+A merge conflit is a
