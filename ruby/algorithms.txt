@@ -1,0 +1,51 @@
+ELEVATOR ALGORITHM
+-Choose if you are going up or down
+	-If up:
+		-push the top/up button
+	-If down:
+		-push the lower/down button
+-Wait for doors to open
+-Walk into elevator
+-Choose floor that elevator will take you to
+	-If going up
+		-Look at button one floor up
+			-Until you see correct floor
+				-Push button
+			-If not correct floor
+				-Do not push button
+				-Go to next floor up
+				-Repeat until correct floor button is pushed
+-Once correct floor button is pushed, remain standing in place
+-Exit elevator once correct floor is reached and doors open
+Complete
+
+
+PUMPING GAS
+-Park car with gas cap facing gas station terminal
+-Choose to pay with cash or credit card
+	-If cash:
+		-Walk into gas station
+		-Hand cashier dollar amount of gas you wish to purchase
+	-If credit card:
+		-Put credit card in credit card slot of terminal
+		-Pull credit card out immediately after inserting
+		-Key in zip code registered to credit card
+-Open gas cap of car
+-Insert gas nozzle into car
+-Choose which grade of gas you wish to purchase:
+	-If you wish to pump high grade gas:
+		-push button for high grade
+	-If you wish to pump medium grade gas:
+		-push button for medium grade
+	-If you wish to pump standard grade gas:
+		-push button for standard grade
+-Pull up on lever of nozzle and push locking mechanism into place
+-Once the lever unlocks and gas nozzle stops flowing, remove nozzle from car
+-Return nozzle to gas terminal
+-Close gas cap of car
+-Choose whether or not you want a receipt
+	-If you want a receipt:
+		-Push ‘yes’ button
+	-If not:
+		-Push ‘no’ button
+Complete
