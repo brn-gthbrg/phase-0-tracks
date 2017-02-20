@@ -13,12 +13,14 @@ def encrypt(password)
       if password[index] == "z"
       password[index] = "a"
       encrypted_password = encrypted_password + password[index]
-    index += 1
-
-    else
-    encrypted_password = encrypted_password + password[index].next
-    index += 1
-    end
+      index += 1
+      elsif password[index] == " "
+        password[index] = " "
+      index += 1
+      else
+      encrypted_password = encrypted_password + password[index].next
+      index += 1
+      end
   end
 
    p encrypted_password
