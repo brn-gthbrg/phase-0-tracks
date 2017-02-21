@@ -1,4 +1,7 @@
-# PSEUDO CODE
+# RELEASE 5
+
+
+# ENCRYPT PSEUDO CODE
 # ask for a password
 # get the password
 # enter only letters. no numbers or symbols
@@ -48,7 +51,10 @@ def decrypt(password)
   puts password
 end
 
-encrypt("abc")
-encrypt("zed")
-decrypt("bcd")
-decrypt("afe")
+# encrypt("abc")
+# encrypt("zed")
+# decrypt("bcd")
+# decrypt("afe")
+
+# Testing a nested method
+# decrypt(encrypt("swordfish"))
