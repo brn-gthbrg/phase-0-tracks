@@ -1,6 +1,3 @@
-# RELEASE 5
-
-
 # ENCRYPT PSEUDO CODE
 # ask for a password
 # get the password
@@ -58,3 +55,30 @@ end
 
 # Testing a nested method
 # decrypt(encrypt("swordfish"))
+
+
+# RELEASE 5 INTERFACE
+# Ask secret agent whether they want to decrypt or encrypt a password
+# use if/else statements to choose
+# Ask for password
+# Processes request
+# print results to screen
+# exit
+
+# Interface
+p "Do you want to decrypt or encrypt a password?"
+choice = gets.chomp
+p "What is the password?"
+input_password = gets.chomp
+
+if
+  choice == "encrypt"
+  encrypt(input_password)
+elsif
+  choice == "decrypt"
+  decrypt(input_password)
+else
+  p "Answer not recognized. Run program again."
+end
+
+p input_password
