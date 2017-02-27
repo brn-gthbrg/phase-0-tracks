@@ -49,7 +49,7 @@ end
 # USER INTERFACE
 name_list = {}
 input_name = nil
-until input_name != "quit" || input_name != ""
+until input_name == "quit" || input_name == ""
     puts "What is your first and last name? Type 'quit' to exit."
       input_name = gets.chomp
       if input_name == "quit" || input_name == ""
