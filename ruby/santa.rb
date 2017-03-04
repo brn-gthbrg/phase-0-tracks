@@ -1,4 +1,6 @@
 class Santa
+  attr_reader :ethnicity
+  attr_accessor :gender, :age
 
   def initialize(gender, ethnicity)
     puts "Initializing Santa instance..."
@@ -29,17 +31,30 @@ end
 
 # puts Santa.new.eat_milk_and_cookies("chocolate chip")
 
+puts "How many Santas do you want?"
+input_numb = gets.chomp.to_i
 
 santas = []
-santas << Santa.new("agender", "black")
-santas << Santa.new("female", "Latino")
+example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+input_numb.times do |i|
+  rand_gender = example_genders.shuffle
+  rand_ethnic = example_ethnicities.shuffle
+  santas << Santa.new(rand_gender[0], rand_ethnic[0])
+end
+santas.each {|santa| age = rand()
+
+
+
+
+# DRIVER CODE
+# santas << Santa.new("agender", "black")
+# santas << Santa.new("female", "Latino")
 # santas << Santa.new("bigender", "white")
 # santas << Santa.new("male", "Japanese")
 # santas << Santa.new("female", "prefer not to say")
 # santas << Santa.new("gender fluid", "Mystical Creature (unicorn)")
 # santas << Santa.new("N/A", "N/A")
-p santas
-
 santas.each {|santa| santa.get_mad_at("Vixen")}
-
+# santas.each {|santa| santa.celebrate_birthday}
 p santas
