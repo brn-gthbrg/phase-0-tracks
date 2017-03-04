@@ -1,0 +1,6 @@
+# Create a secret word for user to guess
+# Number of guesses is even to the number of letters in the word
+# Saying the same letter doesn’t count as a guess
+# Show letter placement in word when user guesses correctly
+# Congratulate if they win
+# Taunt if they lose.
