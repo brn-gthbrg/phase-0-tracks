@@ -42,7 +42,8 @@ input_numb.times do |i|
   rand_ethnic = example_ethnicities.shuffle
   santas << Santa.new(rand_gender[0], rand_ethnic[0])
 end
-santas.each {|santa| age = rand()
+
+santas.each { |santa| santa.age = rand(1..140) }
 
 
 
@@ -55,6 +56,8 @@ santas.each {|santa| age = rand()
 # santas << Santa.new("female", "prefer not to say")
 # santas << Santa.new("gender fluid", "Mystical Creature (unicorn)")
 # santas << Santa.new("N/A", "N/A")
-santas.each {|santa| santa.get_mad_at("Vixen")}
+# santas.each {|santa| santa.get_mad_at("Vixen")}
 # santas.each {|santa| santa.celebrate_birthday}
+# santas[0].eat_milk_and_cookies("chocolate chip")
+
 p santas
