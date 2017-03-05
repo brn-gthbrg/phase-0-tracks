@@ -14,7 +14,8 @@
 # User Interface
 	# Ask first user for word
 	# Hide word from second user
-	# Take letter user2 enters and check against input word
+	# Ask user2 to guess a letter
+	# Take letter user2 enters and check against input word from user1
 	# if the word has that letter, replace the blank space with the letter
 	# Take away a guess_count
 # Congratulate if they win
