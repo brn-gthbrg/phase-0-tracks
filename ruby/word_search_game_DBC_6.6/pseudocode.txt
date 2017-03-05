@@ -1,6 +1,21 @@
-# Create a secret word for user to guess
-# Number of guesses is even to the number of letters in the word
-# Saying the same letter doesn’t count as a guess
-# Show letter placement in word when user guesses correctly
+# Create a class for game
+# Initialize
+	# @secret_word is created by new_game method
+	# @guess_count equals the length of secret_word
+# new_game method to create a new secret word
+# Do not take away a guess_count if that guess has already occurred
+
+# Show letter placement in word when user guesses a letter correctly
+# Remove a guess_count if user guesses incorrectly
 # Congratulate if they win
 # Taunt if they lose.
+
+# User Interface
+# puts Are you ready to play
+# get yes or no reply from user
+	# if no quit the game
+	# if yes create a new game instance
+		# Ask user level 1-5
+		# Get response
+		# Randomly pick word from different arrays. Level 1 is a 3-letter word, level 5 is a 7-letter word and levels in between fall together.
+		# Display hidden letters, guess_count, and guessed letters
