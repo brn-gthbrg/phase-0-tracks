@@ -1,21 +1,21 @@
 # Create a class for game
 # Initialize
-	# @secret_word is created by new_game method
+	# @secret_word is input
 	# @guess_count equals the length of secret_word
-# new_game method to create a new secret word
-# Do not take away a guess_count if that guess has already occurred
+# guess_countdown method: 
+	# if the guess exists in a past_guess array, do not subtract 1 from the guess_count
+	# if the guess doesn’t exist in a past_guess array, subtract 1 from the guess_count
+# letter_check method:
+	# check if secret_word includes the input letter
+	# if yes find and replace the hidden letter in secret_word and subtract guess_count
+	# if it does not, tell user incorrect and subtract guess_count
 
-# Show letter placement in word when user guesses a letter correctly
-# Remove a guess_count if user guesses incorrectly
-# Congratulate if they win
-# Taunt if they lose.
 
 # User Interface
-# puts Are you ready to play
-# get yes or no reply from user
-	# if no quit the game
-	# if yes create a new game instance
-		# Ask user level 1-5
-		# Get response
-		# Randomly pick word from different arrays. Level 1 is a 3-letter word, level 5 is a 7-letter word and levels in between fall together.
-		# Display hidden letters, guess_count, and guessed letters
+	# Ask first user for word
+	# Hide word from second user
+	# Take letter user2 enters and check against input word
+	# if the word has that letter, replace the blank space with the letter
+	# Take away a guess_count
+# Congratulate if they win
+# Taunt if they lose.
