@@ -14,10 +14,6 @@ class WordGame
     @past_guess = []
   end
 
-  # def guess_recorder(letter)
-   # @past_guess = letter
-  # end
-
   def guess_count_updater(letter)
     if @past_guess.include?(letter)
       @guess_count
@@ -34,13 +30,6 @@ class WordGame
     end
     @blank_word = @blank_word_arr.join(" ")
   end
-
-#  def letter_check(letter)
-#    if @secret_word.include?(letter)
-#      @correct = true
-#    else @correct = false
-#    end
-#  end
 
   def status_update(letter)
       if @secret_word.include?(letter)
@@ -76,7 +65,6 @@ until game.guess_count == 0
   puts "You have #{game.guess_count} guesses"
   puts "Guess a letter"
   guess = gets.chomp
-  # game.guess_recorder(guess)
   puts game.status_update(guess)
   game.guess_count_updater(guess)
 end
