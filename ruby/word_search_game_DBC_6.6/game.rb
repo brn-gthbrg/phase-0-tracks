@@ -1,17 +1,16 @@
 class WordGame
 
-  attr_reader :past_guess
   attr_accessor :secret_word, :guess_count, :past_guess
+
+  def initialize
+    @past_guess = []
+  end
 
   def begin_game
     puts "What is the secret word?"
     @secret_word = gets.chomp
    #  @secret_word_arr = @secret_word.split(//)
     @guess_count = @secret_word.length
-  end
-
-  def initialize
-    @past_guess = []
   end
 
   def guess_count_updater(letter)
