@@ -9,17 +9,18 @@ class WordGame
   def begin_game
     puts "What is the secret word?"
     @secret_word = gets.chomp
-   #  @secret_word_arr = @secret_word.split(//)
+    @secret_word_arr = @secret_word.split(//)
     @guess_count = @secret_word.length
   end
 
   def guess_count_updater(letter)
     if @past_guess.include?(letter)
+      puts "That letter has already been used"
       @guess_count
     else
+      @past_guess << letter
       @guess_count -= 1
     end
-    @past_guess = letter
   end
 
   def word_hide
@@ -30,24 +31,30 @@ class WordGame
     @blank_word = @blank_word_arr.join(" ")
   end
 
-  def status_update(letter)
+def status_update(letter)
       if @secret_word.include?(letter)
         @blank_word.delete!(" ")
-        instances = @secret_word.count(letter)
-        instances.times do
-        position = @secret_word.rindex(letter)
-        @blank_word.slice!(position)
-        @blank_word.insert(position.to_i, letter)
+        i = 0
+      while i < @secret_word.length
+        if @secret_word_arr[i] == letter
+          @blank_word.slice!(i)
+          @blank_word.insert(i, letter)
         end
+        i += 1
       end
-    @blank_word
+    end
+    @blank_word.split(//).join(' ')
   end
 
+
   def win_lose
-    if @blank_word.include?("_")
-      puts "You Lose!"
+    if !@blank_word.include? ("_")
+      @guess_count = 0
+      puts "Congrats! You won!"
+    elsif  @guess_count == 0
+      puts "You're out of guesses, you lose!"
     else
-      puts "You won!"
+      @blank_word
     end
   end
 
@@ -66,5 +73,5 @@ until game.guess_count == 0
   guess = gets.chomp
   puts game.status_update(guess)
   game.guess_count_updater(guess)
+  game.win_lose
 end
-game.win_lose
