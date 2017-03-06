@@ -27,4 +27,5 @@ describe Calculator do
 
   it "divides two integers" do
     expect(calculator.divide(6,3)).to eq 2
+  end
 end
