@@ -1,11 +1,7 @@
 class WordGame
 
   attr_reader :past_guess
-  attr_accessor :secret_word, :guess_count
-
-  def initialize
-    @past_guess = []
-  end
+  attr_accessor :secret_word, :guess_count, :past_guess
 
   def begin_game
     puts "What is the secret word?"
@@ -14,18 +10,21 @@ class WordGame
     @guess_count = @secret_word.length
   end
 
-  def guess_recorder(letter)
-    @past_guess = letter
+  def initialize
+    @past_guess = []
   end
 
+  # def guess_recorder(letter)
+   # @past_guess = letter
+  # end
+
   def guess_count_updater(letter)
-    if @secret_word.include?(letter)
-      @guess_count -= 1
-    elsif @past_guess.include?(letter)
+    if @past_guess.include?(letter)
       @guess_count
     else
       @guess_count -= 1
     end
+    @past_guess = letter
   end
 
   def word_hide
@@ -57,6 +56,11 @@ class WordGame
   end
 
   def win_lose
+    if @blank_word.include?("_")
+      puts "You Lose!"
+    else
+      puts "You won!"
+    end
   end
 
 end
@@ -68,13 +72,12 @@ game = WordGame.new
 
 game.begin_game
 puts game.word_hide
-# puts game.guess_count
 until game.guess_count == 0
- # puts game.guess_count
+  puts "You have #{game.guess_count} guesses"
   puts "Guess a letter"
   guess = gets.chomp
-  game.guess_recorder(guess)
+  # game.guess_recorder(guess)
   puts game.status_update(guess)
-  game.win_lose
   game.guess_count_updater(guess)
 end
+game.win_lose
