@@ -1,11 +1,11 @@
 class TodoList
 
-  def initialize(array)
-    @todo_list = []
+  def initialize(list_array)
+    @todo_list = list_array
   end
 
-  def get_items(item1, item2)
-    @todo_list << [item1, item2]
+  def get_items
+    @todo_list
   end
 
   def add_item(item)
@@ -16,7 +16,7 @@ class TodoList
     @todo_list.delete(item)
   end
 
-  def retrieve_item(index)
+  def get_item(index)
     @todo_list[index]
   end
 end
