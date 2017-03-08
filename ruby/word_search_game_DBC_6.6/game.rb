@@ -4,12 +4,12 @@ class WordGame
 
   def initialize
     @past_guess = []
+    @secret_word = ""
+    @guess_count = @secret_word.length
+    @secret_word_arr = @secret_word.split(//)
   end
 
-  def begin_game
-    puts "What is the secret word?"
-    @secret_word = gets.chomp
-    @secret_word_arr = @secret_word.split(//)
+  def guess_start
     @guess_count = @secret_word.length
   end
 
@@ -31,7 +31,8 @@ class WordGame
     @blank_word = @blank_word_arr.join(" ")
   end
 
-def status_update(letter)
+  def status_update(letter)
+    @secret_word_arr = @secret_word.split(//)
       if @secret_word.include?(letter)
         @blank_word.delete!(" ")
         i = 0
@@ -45,7 +46,6 @@ def status_update(letter)
     end
     @blank_word.split(//).join(' ')
   end
-
 
   def win_lose
     if !@blank_word.include? ("_")
@@ -65,7 +65,10 @@ end
 puts "Welome to the Word Game"
 game = WordGame.new
 
-game.begin_game
+puts "What is the secret word?"
+game.secret_word = gets.chomp
+game.guess_start
+#game.format_word
 puts game.word_hide
 until game.guess_count == 0
   puts "You have #{game.guess_count} guesses"
