@@ -28,5 +28,32 @@ biggestString(arr);
 
 
 
-// RELEASE 1: Find a Key-Value Match
-//
+//RELEASE 1
+// define 2 objects
+// define function that takes 2 objects as arguments
+// define 'checker' as false
+// for each key and value in object 1
+  // until checker = true
+    // check if object 2 contains key and value of object 1
+    // if it does, checker is true
+    // else it is false
+  // print checker
+
+
+var peep = ["John", 32];
+var otherPeep = ["Dave", 32];
+
+//console.log(peep);
+//console.log(otherPeep);
+
+function Match(group1, group2) {
+  var checker = false;
+  for (var i = 0; i < group1.length; i++) {
+    if (group1[i] == group2[i])
+      checker = true }
+    console.log(checker);
+}
+
+Match (peep, otherPeep);
+
+
