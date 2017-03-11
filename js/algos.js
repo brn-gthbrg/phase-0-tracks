@@ -57,3 +57,7 @@ function Match(group1, group2) {
 Match (peep, otherPeep);
 
 
+//RELEASE 2: Generate Random Test Data
+// define random word generator function
+// function takes integer as argument
+//
