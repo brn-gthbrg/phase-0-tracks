@@ -60,4 +60,6 @@ Match (peep, otherPeep);
 //RELEASE 2: Generate Random Test Data
 // define random word generator function
 // function takes integer as argument
-//
+// for the given integer's number of times, do
+// choose a random letter a random number (between 1 and 10) of times
+// add each instance to an array
