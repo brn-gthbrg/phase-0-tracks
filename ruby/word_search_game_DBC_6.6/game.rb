@@ -1,17 +1,18 @@
 class WordGame
 
-  attr_accessor :secret_word, :guess_count, :past_guess
+  attr_reader :past_guess
+  attr_accessor :secret_word, :guess_count
 
   def initialize
     @past_guess = []
     @secret_word = ""
-    @guess_count = @secret_word.length
+    @guess_count = 0
     @secret_word_arr = @secret_word.split(//)
   end
 
-  def guess_start
-    @guess_count = @secret_word.length
-  end
+ # def guess_start
+  #  @guess_count = @secret_word.length
+  #end
 
   def guess_count_updater(letter)
     if @past_guess.include?(letter)
@@ -67,7 +68,7 @@ game = WordGame.new
 
 puts "What is the secret word?"
 game.secret_word = gets.chomp
-game.guess_start
+game.guess_count = game.secret_word.length
 #game.format_word
 puts game.word_hide
 until game.guess_count == 0
