@@ -21,7 +21,7 @@ class VirusPredictor
     speed_of_spread
   end
 
-  private
+  private #private makes the methods underneath inaccessible from outside the class.
 
 # The number of deaths predicted depending on the population density in increments of 50.
   def predicted_deaths
@@ -104,3 +104,7 @@ end
 
 #=======================================================================
 # Reflection Section
+# In state_data, The state names are given as keys in the form of integers. Within each state's hash, the keys are given as symbols. Symbols only use one identifier so they are easier for a program to read since a string is editable so each character has it's own identifier.
+#require_relative links to another file within the same directory. require is used to go to a different directory to retrieve files.
+# At first nothing but after the question was asked, it seemed odd that the variables were given instead of the instance variables.
+# Using a class was reinforced well along with becoming more comfortable using data within different files.
