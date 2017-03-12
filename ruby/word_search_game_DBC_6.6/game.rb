@@ -1,6 +1,5 @@
 class WordGame
 
-  attr_reader :past_guess
   attr_accessor :secret_word, :guess_count
 
   def initialize
