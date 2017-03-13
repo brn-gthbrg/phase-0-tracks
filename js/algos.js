@@ -40,21 +40,22 @@ biggestString(arr);
   // print checker
 
 
-var peep = ["John", 32];
-var otherPeep = ["Dave", 32];
+var Steve = {name: "John", age: 32};
+var Dave = {name: "Dave", age: 32};
 
 //console.log(peep);
 //console.log(otherPeep);
 
 function Match(group1, group2) {
-  var checker = false;
-  for (var i = 0; i < group1.length; i++) {
-    if (group1[i] == group2[i])
-      checker = true }
-    console.log(checker);
+  for (var i in group1) {
+    if (group1[i] == group2[i]) {
+      return true
+    }
+  }
+  return false;
 }
 
-Match (peep, otherPeep);
+console.log(Match(Steve, Dave));
 
 
 //RELEASE 2: Generate Random Test Data
