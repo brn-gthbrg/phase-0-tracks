@@ -1,4 +1,3 @@
-
 // RELEASE 0: Find the Longest Phrase
 // choose array to search
 // check length of each string within the array
@@ -64,3 +63,19 @@ console.log(Match(Steve, Dave));
 // for the given integer's number of times, do
 // choose a random letter a random number (between 1 and 10) of times
 // add each instance to an array
+
+function randomWords(count){
+    var allWords = [];
+    var alphabet = "abcdefghijklmnopqrstuvwxyz";
+      for ( var i = 0; i < count; i++) {
+        var letters = Math.floor(1 + (Math.random()*10));
+        var word = "";
+        for( var j = 0; j < letters; j++ ) {
+            word += alphabet.charAt(Math.floor(Math.random() * (alphabet.length)));
+        }
+        allWords.push(word);
+      }
+      return allWords;
+  }
+
+console.log(randomWords(10));
