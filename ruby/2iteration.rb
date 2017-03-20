@@ -30,3 +30,31 @@ athletes_hash = {
 athletes_hash.each do |sport, athlete|
   puts "#{athlete} plays #{sport}"
 end
+
+
+# Release 2
+array = [55, 23, 33, 107, 87, 92]
+
+hash = {
+  one: 1,
+  two: 2,
+  three: 3
+}
+
+# array.delete_if { |number| number < 50 }
+# puts array
+# hash.delete_if { |word, number| number <= 2 }
+# puts hash.values
+
+# array.keep_if { |number| number < 50 }
+# puts array
+# hash.keep_if { |word, number| number <= 2 }
+# puts hash.values
+
+# array.select! {|number| number < 50 }
+# puts array
+# hash.select! { |word, number| number <= 2 }
+# puts hash.values
+
+# puts array.drop_while { |number| number < 100 }
+hash.drop_while { |word, number| number < 2 }
