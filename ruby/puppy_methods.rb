@@ -32,31 +32,55 @@ Puppy.new.speak(3)
 Puppy.new.roll_over
 Puppy.new.dog_years(2)
 
-# #class Cars
 
-#  def initialize
-#    puts "This is the initialize method."
-#  end
 
-#   def tire_turn(numb)
-#     numb.times do
-#       puts "The tire has turned #{numb} times!"
-#     end
-#   end
 
-#   def ignition
-#     puts "Starting up the car"
-#   end
-# end
+class Cars
 
-# cars_arr = []
+  def initialize
+    puts "This is the initialize method."
+    @brands = ["Toyota", "Ford", "Honda", "Mercedes", "Fiat"]
+  end
 
-# 50.times do
-# cars = Cars.new
-# cars_arr << cars
-# end
+  def assign_car
+    @maker = @brands.sample
+  end
 
-# cars_arr.each do |car_inst|
-#   car_inst.tire_turn(3)
-#   car_inst.ignition
-# end
+  def tire_turn(numb)
+    numb.times do
+      puts "The tire has turned #{numb} times!"
+    end
+  end
+
+  def ignition
+    puts "Starting up the #{@maker}"
+  end
+
+  def direction(compass)
+    puts "Heading #{compass}"
+  end
+
+end
+
+
+
+toyota = Cars.new
+toyota.direction("South")
+
+
+car_arr = []
+
+50.times do
+cars = Cars.new
+car_arr << cars
+end
+
+#car_arr.each do |car|
+#  puts "This #{car.assign_car}"
+#end
+
+car_arr.each do |car_inst|
+  car_inst.assign_car
+  car_inst.tire_turn(3)
+  car_inst.ignition
+end
