@@ -1,5 +1,7 @@
 class Santa
 
+
+
   def initialize(gender, ethnicity)
     puts "Initializing Santa instance..."
     @gender = gender
@@ -20,11 +22,24 @@ class Santa
     @age += 1
   end
 
-  def get_mad_at(reindeer)
-    count = @reindeer_ranking.length
-    choice = reindeer_ranking.delete_at([reindeer])
-
+   def get_mad_at(reindeer)
+    @reindeer_ranking.delete(reindeer)
+    @reindeer_ranking.push(reindeer)
+    p @reindeer_ranking
   end
+
+#  def gender(input)
+#    @gender = input
+#  end
+
+#  def age
+#    @age
+#  end
+
+#  def ethnicity
+#    @ethnicity
+#  end
+
 end
 
 #santas = []
@@ -42,3 +57,5 @@ example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer n
 example_genders.length.times do |i|
   santas << Santa.new(example_genders[i], example_ethnicities[i])
 end
+
+santas[1].get_mad_at("Vixen")
