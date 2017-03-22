@@ -7,7 +7,6 @@ class Puppy
 
 end
 
-
 class Cars
 
   def initialize
