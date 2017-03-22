@@ -3,10 +3,9 @@ class WordGame
   attr_accessor :secret_word, :guess_count
 
   def initialize
-    @past_guess = []
     @secret_word = ""
     @guess_count = 0
-    @secret_word_arr = @secret_word.split(//)
+    @past_guess = []
   end
 
  # def guess_start
@@ -24,20 +23,20 @@ class WordGame
   end
 
   def word_hide
-    @blank_word_arr = @secret_word.split(//)
-    @blank_word_arr.map! do |letter|
+    blank_word_arr = @secret_word.split(//)
+    blank_word_arr.map! do |letter|
       letter = "_"
     end
-    @blank_word = @blank_word_arr.join(" ")
+    @blank_word = blank_word_arr.join(" ")
   end
 
   def status_update(letter)
-    @secret_word_arr = @secret_word.split(//)
+    secret_word_arr = @secret_word.split(//)
       if @secret_word.include?(letter)
         @blank_word.delete!(" ")
         i = 0
       while i < @secret_word.length
-        if @secret_word_arr[i] == letter
+        if secret_word_arr[i] == letter
           @blank_word.slice!(i)
           @blank_word.insert(i, letter)
         end
@@ -66,8 +65,8 @@ puts "Welome to the Word Game"
 game = WordGame.new
 
 puts "What is the secret word?"
-game.secret_word = gets.chomp
-game.guess_count = game.secret_word.length
+game.secret_word = gets.chomp.downcase
+game.guess_count = game.secret_word.length*2
 #game.format_word
 puts game.word_hide
 until game.guess_count == 0
