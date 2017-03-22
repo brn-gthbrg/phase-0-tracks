@@ -1,7 +1,7 @@
 class Santa
 
-  attr_reader :age, :ethniticy
-  attr_accessor :gender
+  attr_reader :ethniticy
+  attr_accessor :gender, :age
 
   def initialize(gender, ethnicity)
     puts "Initializing Santa instance..."
@@ -55,12 +55,31 @@ end
 #santas << Santa.new("gender fluid", "Mystical Creature (unicorn)")
 #santas << Santa.new("N/A", "N/A")
 
-santas = []
-example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
-example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
-example_genders.length.times do |i|
-  santas << Santa.new(example_genders[i], example_ethnicities[i])
-end
+#santas = []
+#example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+#example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+#example_genders.length.times do |i|
+#  santas << Santa.new(example_genders[i], example_ethnicities[i])
+#end
 
 #santas[0].get_mad_at("Vixen")
 #puts santas[0].age
+
+
+
+
+#USER INTERFACE
+puts "How many Santas do you want?"
+input_numb = gets.chomp.to_i
+
+santas = []
+example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+input_numb.times do |i|
+  rand_gender = example_genders.shuffle
+  rand_ethnic = example_ethnicities.shuffle
+  santas << Santa.new(rand_gender[0], rand_ethnic[0])
+end
+
+santas.each { |santa| santa.age = rand(1..140) }
+santas.each { |santa| puts santa.age}
