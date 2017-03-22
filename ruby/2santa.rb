@@ -1,6 +1,7 @@
 class Santa
 
-
+  attr_reader :age, :ethniticy
+  attr_accessor :gender
 
   def initialize(gender, ethnicity)
     puts "Initializing Santa instance..."
@@ -42,6 +43,9 @@ class Santa
 
 end
 
+
+
+# DRIVER CODE
 #santas = []
 #santas << Santa.new("agender", "black")
 #santas << Santa.new("female", "Latino")
@@ -58,4 +62,5 @@ example_genders.length.times do |i|
   santas << Santa.new(example_genders[i], example_ethnicities[i])
 end
 
-santas[1].get_mad_at("Vixen")
+#santas[0].get_mad_at("Vixen")
+#puts santas[0].age
