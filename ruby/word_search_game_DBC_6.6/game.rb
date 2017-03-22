@@ -43,7 +43,7 @@ class WordGame
         i += 1
       end
     end
-    @blank_word.split(//).join(' ')
+    puts @blank_word.split(//).join(' ')
   end
 
   def win_lose
@@ -66,14 +66,14 @@ game = WordGame.new
 
 puts "What is the secret word?"
 game.secret_word = gets.chomp.downcase
-game.guess_count = game.secret_word.length*2
+game.guess_count = game.secret_word.length+5
 #game.format_word
 puts game.word_hide
 until game.guess_count == 0
   puts "You have #{game.guess_count} guesses"
   puts "Guess a letter"
   guess = gets.chomp
-  puts game.status_update(guess)
+  game.status_update(guess)
   game.guess_count_updater(guess)
   game.win_lose
 end
