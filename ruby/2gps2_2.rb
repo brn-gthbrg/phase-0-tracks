@@ -101,3 +101,11 @@ update_quantity(my_list, "Ice Cream", 1)
 puts my_list
 
 print_list(my_list)
+
+# RELEASE 4
+# Taking the time to pseudocode helps speed along the process of writing out the code. It's nice to think out all of the methods in the beginning before diving into coding.
+# An array would have worked to create a list of each item but since we also want to assign a quantity, a hash was the better option.
+# A method returns an updated version of the list. We used the following methods to change the "final_list" created in the first method.
+# We can pass any defined piece of data through a method such as an array, hash, variable, integer, or float.
+# We can pass information between methods by assigning the methods output to a variable and using that variable as an argument in a different method.
+# The importance of pseudocode was the first concept reinforced. The second major concept was the way separate methods can interact with and change the same data structure.
