@@ -1,16 +1,26 @@
 class WordGame
 
-  attr_accessor :secret_word, :guess_count
+  attr_reader :guess_count
 
-  def initialize
-    @secret_word = ""
-    @guess_count = 0
+  def initialize(word, count)
+    @secret_word = word
+    @guess_count = count + 5
     @past_guess = []
   end
 
- # def guess_start
-  #  @guess_count = @secret_word.length
-  #end
+  def game_play
+    word_hide
+    until @guess_count == 0
+      puts "You have #{@guess_count} guesses"
+      puts "Guess a letter"
+      guess = gets.chomp.downcase
+      status_update(guess)
+      win_lose
+    end
+  end
+
+
+  private
 
   def guess_count_updater(letter)
     if @past_guess.include?(letter)
@@ -44,6 +54,7 @@ class WordGame
       end
     end
     puts @blank_word.split(//).join(' ')
+    guess_count_updater(letter)
   end
 
   def win_lose
@@ -62,18 +73,8 @@ end
 # USER INTERFACE
 
 puts "Welome to the Word Game"
-game = WordGame.new
-
 puts "What is the secret word?"
-game.secret_word = gets.chomp.downcase
-game.guess_count = game.secret_word.length+5
-#game.format_word
-puts game.word_hide
-until game.guess_count == 0
-  puts "You have #{game.guess_count} guesses"
-  puts "Guess a letter"
-  guess = gets.chomp
-  game.status_update(guess)
-  game.guess_count_updater(guess)
-  game.win_lose
-end
+input_wrd = gets.chomp.downcase
+wrd_length = input_wrd.length
+game = WordGame.new(input_wrd, wrd_length)
+game.game_play
