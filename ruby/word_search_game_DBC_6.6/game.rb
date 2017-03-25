@@ -1,17 +1,16 @@
 class WordGame
 
-  attr_accessor :secret_word, :guess_count, :past_guess
+  attr_accessor :secret_word, :guess_count
 
   def initialize
+    @secret_word = ""
+    @guess_count = 0
     @past_guess = []
   end
 
-  def begin_game
-    puts "What is the secret word?"
-    @secret_word = gets.chomp
-    @secret_word_arr = @secret_word.split(//)
-    @guess_count = @secret_word.length
-  end
+ # def guess_start
+  #  @guess_count = @secret_word.length
+  #end
 
   def guess_count_updater(letter)
     if @past_guess.include?(letter)
@@ -24,28 +23,28 @@ class WordGame
   end
 
   def word_hide
-    @blank_word_arr = @secret_word.split(//)
-    @blank_word_arr.map! do |letter|
+    blank_word_arr = @secret_word.split(//)
+    blank_word_arr.map! do |letter|
       letter = "_"
     end
-    @blank_word = @blank_word_arr.join(" ")
+    @blank_word = blank_word_arr.join(" ")
   end
 
-def status_update(letter)
+  def status_update(letter)
+    secret_word_arr = @secret_word.split(//)
       if @secret_word.include?(letter)
         @blank_word.delete!(" ")
         i = 0
       while i < @secret_word.length
-        if @secret_word_arr[i] == letter
+        if secret_word_arr[i] == letter
           @blank_word.slice!(i)
           @blank_word.insert(i, letter)
         end
         i += 1
       end
     end
-    @blank_word.split(//).join(' ')
+    puts @blank_word.split(//).join(' ')
   end
-
 
   def win_lose
     if !@blank_word.include? ("_")
@@ -65,13 +64,16 @@ end
 puts "Welome to the Word Game"
 game = WordGame.new
 
-game.begin_game
+puts "What is the secret word?"
+game.secret_word = gets.chomp.downcase
+game.guess_count = game.secret_word.length+5
+#game.format_word
 puts game.word_hide
 until game.guess_count == 0
   puts "You have #{game.guess_count} guesses"
   puts "Guess a letter"
   guess = gets.chomp
-  puts game.status_update(guess)
+  game.status_update(guess)
   game.guess_count_updater(guess)
   game.win_lose
 end
