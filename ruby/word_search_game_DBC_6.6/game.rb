@@ -8,15 +8,13 @@ class WordGame
     @past_guess = []
   end
 
-  def game_play
+  def game_start
     word_hide
-    until @guess_count == 0
-      puts "You have #{@guess_count} guesses"
-      puts "Guess a letter"
-      guess = gets.chomp.downcase
-      status_update(guess)
-      win_lose
-    end
+  end
+
+  def game_play(guess)
+    status_update(guess)
+    win_lose
   end
 
 
@@ -77,4 +75,10 @@ puts "What is the secret word?"
 input_wrd = gets.chomp.downcase
 wrd_length = input_wrd.length
 game = WordGame.new(input_wrd, wrd_length)
-game.game_play
+game.game_start
+while game.guess_count > 0
+  puts "You have #{game.guess_count} guesses"
+  puts "Guess a letter"
+  guess = gets.chomp.downcase
+  game.game_play(guess)
+end
