@@ -10,6 +10,7 @@ class WordGame
 
   def game_start
     word_hide
+    puts @blank_word
   end
 
   def game_play(guess)
