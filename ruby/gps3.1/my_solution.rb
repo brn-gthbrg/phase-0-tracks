@@ -24,22 +24,24 @@ class VirusPredictor
   end
 
   private
+
   # predicted deaths calculates predicted deaths based on population, population_density depending on the state listed.
+
   def predicted_deaths
     # predicted deaths is solely based on population density
     if population_density >= 200
-      number_of_deaths = (population * 0.4).floor
-    elsif @population_density >= 150
-      number_of_deaths = (population * 0.3).floor
-    elsif @population_density >= 100
-      number_of_deaths = (population * 0.2).floor
-    elsif @population_density >= 50
-      number_of_deaths = (population * 0.1).floor
+      multiplier = 0.4
+    elsif population_density >= 150
+      multiplier = 0.3
+    elsif population_density >= 100
+      multiplier = 0.2
+    elsif population_density >= 50
+      multiplier = 0.1
     else
-      number_of_deaths = (population * 0.05).floor
+      multiplier = 0.05
     end
-
-    print "#{@state} will lose #{number_of_deaths} people in this outbreak"
+    number_of_deaths = (population * multiplier).floor
+    print "#{state} will lose #{number_of_deaths} people in this outbreak"
 
   end
   # speed of spread will rate the speed based on population density of the given state.
