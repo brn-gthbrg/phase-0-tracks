@@ -94,3 +94,12 @@ end
 
 #=======================================================================
 # Reflection Section
+#The overall STATE_DATA hash uses strings for keys and the individual states use symbols as keys. The STATE_DATA is a "hashy hash" because it is a bunch of hashes inside of a hash.
+
+#require_relative references a file that is in the same repository (same name file). require will reference a file following its ruby load path.
+
+#Using the each, map, or map! methods and using a block to iterate through each hash.
+
+#We were repeating arguments for each method that is called within the virus_effects method and each argument was an instance variable. We discovered instance variables all over the class that we could rewrite into attr_reader.
+
+#Referencing and using data from a very large hash filled with hashes. Also ways to refactor methods.
