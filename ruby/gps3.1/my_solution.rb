@@ -52,11 +52,11 @@ class VirusPredictor
 
     if population_density >= 200
       speed += 0.5
-    elsif population_density >= 150
+    elsif population_density == [151..199]
       speed += 1
-    elsif population_density >= 100
+    elsif population_density == [100..150]
       speed += 1.5
-    elsif population_density >= 50
+    elsif population_density == [50..99]
       speed += 2
     else
       speed += 2.5
