@@ -6,9 +6,10 @@ class WordGame
     @secret_word = word
     @guess_count = count + 5
     @past_guess = []
+    @blank_word = ""
   end
 
-  def game_start
+  def word_format
     word_hide
     puts @blank_word
   end
@@ -76,7 +77,7 @@ puts "What is the secret word?"
 input_wrd = gets.chomp.downcase
 wrd_length = input_wrd.length
 game = WordGame.new(input_wrd, wrd_length)
-game.game_start
+game.word_format
 while game.guess_count > 0
   puts "You have #{game.guess_count} guesses"
   puts "Guess a letter"
