@@ -7,3 +7,11 @@ horses.push("Seabiscuit");
 
 console.log(colors)
 console.log(horses)
+
+
+stable = {};
+for (var i = 0; i < horses.length; i++) {
+  stable[horses[i]] = colors[i];
+}
+
+console.log(stable);
