@@ -1,12 +1,13 @@
 class WordGame
 
-  attr_reader :guess_count, :blank_word
+  attr_reader :guess_count, :blank_word, :game_over
 
   def initialize(word, count)
     @secret_word = word
     @guess_count = count + 5
     @past_guess = []
     @blank_word = word_hide
+    @game_over = false
   end
 
   def game_play(guess)
@@ -37,17 +38,15 @@ class WordGame
 
   def status_update(letter)
     secret_word_arr = @secret_word.split(//)
+    @blank_word.delete!(" ")
       if @secret_word.include?(letter)
-        @blank_word.delete!(" ")
-        i = 0
-      while i < @secret_word.length
-        if secret_word_arr[i] == letter
-          @blank_word.slice!(i)
-          @blank_word.insert(i, letter)
+        secret_word_arr.each_with_index do |thing, index|
+          if thing == letter
+            @blank_word.slice!(index)
+            @blank_word.insert(index, letter)
+          end
         end
-        i += 1
       end
-    end
     puts @blank_word.split(//).join(' ')
     guess_count_updater(letter)
   end
@@ -56,8 +55,10 @@ class WordGame
     if !@blank_word.include? ("_")
       @guess_count = 0
       puts "Congrats! You won!"
+      @game_over = true
     elsif  @guess_count == 0
       puts "You're out of guesses, you lose!"
+      @game_over = true
     else
       @blank_word
     end
@@ -73,7 +74,7 @@ input_wrd = gets.chomp.downcase
 wrd_length = input_wrd.length
 game = WordGame.new(input_wrd, wrd_length)
 puts game.blank_word
-while game.guess_count > 0
+until game.game_over
   puts "You have #{game.guess_count} guesses"
   puts "Guess a letter"
   guess = gets.chomp.downcase
