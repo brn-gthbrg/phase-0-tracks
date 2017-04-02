@@ -30,25 +30,20 @@ class WordGame
     match_index_arr = []
       if @play_word.include?(letter) == true
         play_arr = @play_word.split(//)
+        i = 0
         play_arr.each do |x|
           if x == letter
-            match_index_arr << @play_word.index(letter)
-            play_arr.delete_at(@play_word.index(letter))
-          else
-          end
-          #puts match_index_arr
-              match_index_arr.each do |i|
-                @blank_word.slice!(i)
-                @blank_word.insert(i, letter)
-              end
-            @blank_word
-          # else
-          #   @blank_word
+            location = play_arr.index(letter) + i
+            @blank_word.slice!(location)
+            @blank_word.insert(location, letter)
+            match_index_arr << location
+            play_arr.slice!(location)
+            # puts play_arr
+            i += 1
           end
         end
-      #else
-       # @blank_word
-      #end
+        match_index_arr
+      end
     puts @blank_word.split(//).join(" ")
     guess_update(letter)
   end
