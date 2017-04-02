@@ -11,8 +11,8 @@ class WordGame
   end
 
   def play_mode(guess)
-       game_play(guess)
-       win_lose
+      game_play(guess)
+      win_lose
   end
 
 
