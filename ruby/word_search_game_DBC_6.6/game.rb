@@ -68,13 +68,13 @@ end
 
 # USER INTERFACE
 
-puts "Welome to the Word Game"
+puts "Welcome to the Word Game"
 puts "What is the secret word?"
 input_wrd = gets.chomp.downcase
 wrd_length = input_wrd.length
 game = WordGame.new(input_wrd, wrd_length)
 puts game.blank_word
-until game.game_over
+until game.game_over == true
   puts "You have #{game.guess_count} guesses"
   puts "Guess a letter"
   guess = gets.chomp.downcase
