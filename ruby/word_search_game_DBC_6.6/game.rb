@@ -1,6 +1,6 @@
 class WordGame
 
-  attr_reader :blank_word, :game_over
+  attr_reader :blank_word, :game_over, :guess_count
 
   def initialize(word, count)
     @secret_word = word
