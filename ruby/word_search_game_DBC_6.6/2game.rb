@@ -10,7 +10,6 @@ class WordGame
     @blank_word = word_hider
   end
 
-
   def play_mode(guess)
        game_play(guess)
        win_lose
@@ -21,6 +20,7 @@ class WordGame
 
   def guess_update(letter)
     if @past_guess.include?(letter)
+      puts "That letter has already been used"
       @guess_count
     else
       @past_guess << letter
