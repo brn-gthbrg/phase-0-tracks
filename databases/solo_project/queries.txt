@@ -54,3 +54,60 @@ BMW|i8
 Chevrolet|Camero
 Chevrolet|Corvette
 Chevrolet|Tahoe
+
+5.
+sqlite> DELETE FROM cars WHERE model="Corvette";
+sqlite> SELECT * FROM cars 
+   ...> ;
+1|1|Fusion|2016
+2|1|F-150|2015
+3|2|3-series|2017
+4|2|Z4|2010
+5|4|XC90|2008
+6|4|S90|2012
+7|1|Mustang|1967
+8|2|i8|2016
+9|3|Camero|2015
+11|3|Tahoe|2002
+
+INNER JOIN
+sqlite> SELECT cars.model, makers.maker FROM cars INNER JOIN makers ON cars.maker_id=makers.id;
+Fusion|Ford
+F-150|Ford
+3-series|BMW
+Z4|BMW
+XC90|Volvo
+S90|Volvo
+Mustang|Ford
+i8|BMW
+Camero|Chevrolet
+Tahoe|Chevrolet
+
+LEFT OUTER JOIN
+sqlite> SELECT cars.model, makers.maker FROM cars LEFT OUTER JOIN makers ON cars.maker_id=makers.id;
+Fusion|Ford
+F-150|Ford
+3-series|BMW
+Z4|BMW
+XC90|Volvo
+S90|Volvo
+Mustang|Ford
+i8|BMW
+Camero|Chevrolet
+Tahoe|Chevrolet
+sqlite> 
+
+
+CROSS JOIN
+sqlite> SELECT cars.model, makers.maker FROM cars CROSS JOIN makers ON cars.maker_id=makers.id;
+Fusion|Ford
+F-150|Ford
+3-series|BMW
+Z4|BMW
+XC90|Volvo
+S90|Volvo
+Mustang|Ford
+i8|BMW
+Camero|Chevrolet
+Tahoe|Chevrolet
+sqlite> 
