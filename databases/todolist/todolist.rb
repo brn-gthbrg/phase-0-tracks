@@ -21,18 +21,18 @@ end
 def view_list(database)
   list = database.execute("SELECT * FROM tasks;")
   list.each do |task|
-    puts "#{task}\n\n"
+    puts "Task #{task[0]}: You need to #{task[2]} with #{task[1]}"
   end
 end
 
 def delete_task(database, task_delete)
-  database.execulte("DELETE FROM tasks WHERE id=?", [task_delete])
+  database.execute("DELETE FROM tasks WHERE id=?", [task_delete])
 end
 
 def view_all_meetings(database, meeting_with)
   people = database.execute("SELECT * FROM tasks WHERE meeting_with=?", [meeting_with])
     people.each do |task|
-      puts "#{task}"
+      puts "You need to #{task[2]} with #{task[1]}"
     end
 end
 
@@ -60,16 +60,19 @@ until answer == 5 || error == 3
   elsif answer == 4
     view_list(database)
     puts "What is the ID number of the task you want to delete?"
-    remove_task = gets.chomp.to_i
-    delete_task(database, remove_task)
+    task_delete = gets.chomp.to_i
+    delete_task(database, task_delete)
   elsif answer == 5
     puts "Now exiting the program. Goodbye"
   elsif error == 3
-    puts "Your response has failed too many times. Please restart the program to try again. Goodbye"
   else
-    puts "I'm sorry, please try again"
-    puts "Please enter 1-5"
     error += 1
+      if error == 3
+      puts "Your response has failed too many times. Please restart the program to try again. Goodbye"
+      else
+        puts "I'm sorry, please try again"
+        puts "Please enter 1-5"
+      end
   end
 end
 
