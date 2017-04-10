@@ -1,0 +1,19 @@
+SELECT * FROM businesses, users, reviews WHERE reviews.business_id = businesses.id and reviews.user_id = users.id;
+1|Grundy's Hollow Wedding Chapel|1|Bradford|Pitt|1|5|great food|1|1
+2|Amir's Towing|3|Angela|Jolie|2|4|they're awesome|2|3
+6|Sushi World|3|Angela|Jolie|3|1|food poisoning|6|3
+
+
+
+SELECT users.First, users.Last, businesses.name, reviews.stars, reviews.comment FROM businesses, users, reviews WHERE reviews.business_id = businesses.id and reviews.user_id = users.id;
+Bradford|Pitt|Grundy's Hollow Wedding Chapel|5|great food
+Angela|Jolie|Amir's Towing|4|they're awesome
+Angela|Jolie|Sushi World|1|food poisoning
+
+
+
+
+SELECT * FROM businesses, users, reviews WHERE reviews.business_id = businesses.id and reviews.user_id = users.id and businesses.name="Sushi World";
+6|Sushi World|3|Angela|Jolie|3|1|food poisoning|6|3
+sqlite> SELECT * FROM businesses, users, reviews WHERE reviews.business_id = businesses.id and reviews.user_id = users.id and business_id=1;
+1|Grundy's Hollow Wedding Chapel|1|Bradford|Pitt|1|5|great food|1|1
