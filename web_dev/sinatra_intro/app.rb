@@ -65,3 +65,27 @@ get '/add/:numb1/:numb2' do
   sum = int1 + int2
   p "#{int1} + #{int2} = #{sum}"
 end
+
+get '/search' do
+  id = params[:id]
+  if id
+  students = db.execute("SELECT * FROM students WHERE id=?", [params[:id]])
+  else
+  students = db.execute("SELECT * FROM students")
+  end
+  response = ""
+    students.each do |student|
+      response << "ID: #{student['id']}<br>"
+      response << "Name: #{student['name']}<br>"
+      response << "Age: #{student['age']}<br>"
+      response << "Campus: #{student['campus']}<br><br>"
+    end
+  response
+end
+
+
+# There are many web app libraries in Ruby. Ruby on Rails is the main one but there is also Sinatra, Padrino, Rack, Camping, Merb, Hobo, Ramaze, etc.
+
+# There are many gem options that can be used with Sinatra. MySQL is a big one.
+
+# A web stack is all the software necessary for web development. There are many different combinations that can make up a web stack but they all use an operating system, a program language, database, and server.
