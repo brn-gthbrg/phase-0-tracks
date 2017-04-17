@@ -25,3 +25,12 @@ post '/students' do
 end
 
 # add static resources
+
+get '/students/delete' do
+  erb :delete_student
+end
+
+post '/students_1' do
+  db.execute("DELETE FROM students WHERE name=?",[params['name']])
+  redirect '/'
+end
