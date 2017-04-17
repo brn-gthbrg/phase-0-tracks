@@ -27,10 +27,10 @@ end
 # add static resources
 
 get '/students/delete' do
-  erb :delete
+  erb :delete_student
 end
 
-post '/students' do
-  db.execute("DELETE FROM students (name, campus, age) VALUES (?,?,?)",[params['name']], params['campus'], params['age'].to_i)
+post '/students_1' do
+  db.execute("DELETE FROM students WHERE name=?",[params['name']])
   redirect '/'
 end
