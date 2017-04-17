@@ -4,7 +4,7 @@ require 'sqlite3'
 
 set :public_folder, File.dirname(__FILE__) + '/static'
 
-db = SQLite3::Database.new("students.db")
+db = SQLite3::Database.new("students.db","transfers.db")
 db.results_as_hash = true
 
 # show students on the home page
@@ -25,3 +25,12 @@ post '/students' do
 end
 
 # add static resources
+
+get '/students/tranfer' do
+  erb :transfer_student
+end
+
+post '/students' do
+  db.execute("INSERT INTO transfers (name, campus, age) VALUES (?,?,?)",[params['name']], params['campus'], params['age'].to_i)
+  redirect '/'
+end
