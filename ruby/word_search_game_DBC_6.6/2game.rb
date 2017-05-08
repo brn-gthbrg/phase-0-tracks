@@ -71,6 +71,8 @@ end
 puts "Welcome to the Word Game!"
 puts "What is the word for this game?"
 input_word = gets.chomp.downcase
+print "\e[2J"
+print "\e[H"
 
 game = WordGame.new(input_word)
 puts game.blank_word
